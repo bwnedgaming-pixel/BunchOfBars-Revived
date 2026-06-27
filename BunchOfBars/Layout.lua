@@ -1,4 +1,4 @@
-﻿
+
 
 ----------------------------
 --      Localization      --
@@ -231,7 +231,7 @@ BunchOfBars.defaults.visual = {
 
 	groupby   = "CLASS",
 	sortby    = "NAME",
-	orderstr  = "WARRIOR,DRUID,PALADIN,DEATHKNIGHT,PRIEST,SHAMAN,ROGUE,MAGE,WARLOCK,HUNTER",
+	orderstr  = "WARRIOR,DRUID,PALADIN,PRIEST,SHAMAN,ROGUE,MAGE,WARLOCK,HUNTER",
 	filterstr = "1,2,3,4,5",
 
 	players = 25
@@ -607,7 +607,7 @@ function BunchOfBars:GetSetGroupBy(v)
 		self.db.profile.visual.groupby = v
 
 		if self.db.profile.visual.groupby == "CLASS" then
-			self.db.profile.visual.orderstr = "WARRIOR,DRUID,PALADIN,DEATHKNIGHT,PRIEST,SHAMAN,ROGUE,MAGE,WARLOCK,HUNTER"
+			self.db.profile.visual.orderstr = "WARRIOR,DRUID,PALADIN,PRIEST,SHAMAN,ROGUE,MAGE,WARLOCK,HUNTER"
 		elseif self.db.profile.visual.groupby == "GROUP" then
 			self.db.profile.visual.orderstr = "1,2,3,4,5,6,7,8"
 		end
@@ -662,7 +662,6 @@ function BunchOfBars:GetSetFilterStr(v)
 			if string.find(s, "WARRIOR") or
 			   string.find(s, "DRUID") or
 			   string.find(s, "PALADIN") or
-			   string.find(s, "DEATHKNIGHT") or
 			   string.find(s, "PRIEST") or
 			   string.find(s, "SHAMAN") or
 			   string.find(s, "ROGUE") or
