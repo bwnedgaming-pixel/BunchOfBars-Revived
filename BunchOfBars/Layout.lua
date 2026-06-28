@@ -501,9 +501,11 @@ function BunchOfBars:HideShowParty()
 
 		for i = 1, 4 do
 			local frame = _G["PartyMemberFrame"..i]
-			frame:UnregisterAllEvents()
-			frame:Hide()
-			frame.Show = function() end
+			if frame then
+				frame:UnregisterAllEvents()
+				frame:Hide()
+				frame.Show = function() end
+			end
 		end
 		
 		UIParent:UnregisterEvent("RAID_ROSTER_UPDATE")
@@ -512,25 +514,32 @@ function BunchOfBars:HideShowParty()
 
 		for i = 1, 4 do
 			local frame = _G["PartyMemberFrame"..i]
-			frame.Show = nil
-			frame:RegisterEvent("PARTY_MEMBERS_CHANGED")
-			frame:RegisterEvent("PARTY_LEADER_CHANGED")
-			frame:RegisterEvent("PARTY_MEMBER_ENABLE")
-			frame:RegisterEvent("PARTY_MEMBER_DISABLE")
-			frame:RegisterEvent("PARTY_LOOT_METHOD_CHANGED")
-			frame:RegisterEvent("UNIT_PVP_UPDATE")
-			frame:RegisterEvent("UNIT_AURA")
-			frame:RegisterEvent("UNIT_PET")
-			frame:RegisterEvent("VARIABLES_LOADED")
-			frame:RegisterEvent("UNIT_NAME_UPDATE")
-			frame:RegisterEvent("UNIT_PORTRAIT_UPDATE")
-			frame:RegisterEvent("UNIT_DISPLAYPOWER")
+			if frame then
+				frame.Show = nil
+				frame:RegisterEvent("PARTY_MEMBERS_CHANGED")
+				frame:RegisterEvent("PARTY_LEADER_CHANGED")
+				frame:RegisterEvent("PARTY_MEMBER_ENABLE")
+				frame:RegisterEvent("PARTY_MEMBER_DISABLE")
+				frame:RegisterEvent("PARTY_LOOT_METHOD_CHANGED")
+				frame:RegisterEvent("UNIT_PVP_UPDATE")
+				frame:RegisterEvent("UNIT_AURA")
+				frame:RegisterEvent("UNIT_PET")
+				frame:RegisterEvent("VARIABLES_LOADED")
+				frame:RegisterEvent("UNIT_NAME_UPDATE")
+				frame:RegisterEvent("UNIT_PORTRAIT_UPDATE")
+				frame:RegisterEvent("UNIT_DISPLAYPOWER")
 
-			UnitFrame_OnEvent("PARTY_MEMBERS_CHANGED")
-			
-			_G.this = frame
-			_G.self = frame
-			PartyMemberFrame_UpdateMember()
+				if UnitFrame_OnEvent then
+					UnitFrame_OnEvent("PARTY_MEMBERS_CHANGED")
+				end
+
+				_G.this = frame
+				_G.self = frame
+
+				if PartyMemberFrame_UpdateMember then
+					PartyMemberFrame_UpdateMember()
+				end
+			end
 		end
 		
 		UIParent:RegisterEvent("RAID_ROSTER_UPDATE")
