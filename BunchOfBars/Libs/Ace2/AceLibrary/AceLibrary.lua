@@ -17,6 +17,15 @@ Dependencies: None
 License: LGPL v2.1
 ]]
 
+-- BunchOfBars-Revived compatibility shim for modern Classic clients
+local GetAddOnInfo = C_AddOns and C_AddOns.GetAddOnInfo or GetAddOnInfo
+local GetNumAddOns = C_AddOns and C_AddOns.GetNumAddOns or GetNumAddOns
+local IsAddOnLoaded = C_AddOns and C_AddOns.IsAddOnLoaded or IsAddOnLoaded
+local IsAddOnLoadOnDemand = C_AddOns and C_AddOns.IsAddOnLoadOnDemand or IsAddOnLoadOnDemand
+local LoadAddOn = C_AddOns and C_AddOns.LoadAddOn or LoadAddOn
+local GetAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
+local GetAddOnDependencies = C_AddOns and C_AddOns.GetAddOnDependencies or GetAddOnDependencies
+
 local ACELIBRARY_MAJOR = "AceLibrary"
 local ACELIBRARY_MINOR = 90000 + tonumber(("$Revision: 1091 $"):match("(%d+)"))
 
@@ -630,7 +639,7 @@ function AceLibrary:Register(newInstance, major, minor, activateFunc, deactivate
 	end
 	if minor <= data.minor then
 		-- This one is already obsolete, raise an error.
-		_G.error(("Obsolete library registered. %s is already registered at version %d. You are trying to register version %d. Hint: if not AceLibrary:IsNewVersion(%q, %d) then return end"):format(major, data.minor, minor, major, minor), 2)
+		_G.error(("Obsolete library registered. %s is already registered at version %d. You are trying to register version %d. Hint: if not AceLibrary:IsNewVersion(%q, %d) then return end"):format(major, data.minor, minor, major, data.minor), 2)
 		return
 	end
 	local instance = data.instance
