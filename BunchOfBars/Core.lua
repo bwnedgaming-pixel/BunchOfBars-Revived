@@ -170,16 +170,6 @@ function BunchOfBars:OnInitialize()
 	self:RegisterDB("BunchOfBars2DB")
 	self:RegisterDefaults("profile", self.defaults)
 
-	-- Compatibility fallback for AceDB-2.0 on modern Classic clients
-	self.db.profile = self.db.profile or {}
-	self.db.profile.visual = self.db.profile.visual or {}
-
-	for k, v in pairs(self.defaults.visual or {}) do
-		if self.db.profile.visual[k] == nil then
-			self.db.profile.visual[k] = v
-		end
-	end
-
 	self:RegisterChatCommand({"/bob", "/bunchofbars"}, self.options)
 end
 
