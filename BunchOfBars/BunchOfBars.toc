@@ -5,11 +5,13 @@
 ## Author: Firik
 ## X-Category: UnitFrame
 ## SavedVariables: BunchOfBars2DB
-## OptionalDeps: Ace2, CallbackHandler-1.0, Dewdrop-2.0, FuBarPlugin-2.0, LibDogTag-3.0, LibDogTag-Unit-3.0, LibHealComm-3.0, LibSharedMedia-3.0, LibStub, oRA2, CT_RaidAssist, DrDamage, LibSharedMedia-3.0
+## OptionalDeps: Ace2, CallbackHandler-1.0, Dewdrop-2.0, FuBarPlugin-2.0, LibDogTag-3.0, LibDogTag-Unit-3.0, LibHealComm-3.0, LibSharedMedia-3.0, LibStub, oRA2, CT_RaidAssist, DrDamage, LibSharedMe
 ## X-Curse-Packaged-Version: r110
 ## X-Curse-Project-Name: BunchOfBars
 ## X-Curse-Project-ID: bunch-of-bars
 ## X-Curse-Repository-ID: wow/bunch-of-bars/mainline
+
+Compatibility.lua
 
 #@no-lib-strip@
 embeds.xml
