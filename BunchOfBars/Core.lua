@@ -1,4 +1,4 @@
-﻿
+
 
 ----------------------------
 --      Localization      --
@@ -98,9 +98,7 @@ BunchOfBars = AceLibrary("AceAddon-2.0"):new(
 	"AceEvent-2.0",
 	"AceModuleCore-2.0",
 	"AceConsole-2.0",
-	"AceDB-2.0",
-
-	"FuBarPlugin-2.0"
+	"AceDB-2.0"
 )
 
 local BunchOfBars = BunchOfBars
@@ -149,18 +147,18 @@ BunchOfBars.defaults = { }
 
 
 
--- FuBar settings
-BunchOfBars:Inject({
-	hasIcon                = "Interface\\Icons\\Ability_Druid_TreeofLife",
-	hasNoColor             = true,
-	defaultMinimapPosition = 60,
-	cannotDetachTooltip	   = true,
-	hideWithoutStandby     = true,
-	blizzardTooltip        = true,
-	hasNoText              = true,
-	independentProfile	   = true,
-	OnMenuRequest          = BunchOfBars.options
-})
+-- FuBar settings (commented out - FuBarPlugin-2.0 no longer loaded)
+-- BunchOfBars:Inject({
+-- 	hasIcon                = "Interface\\Icons\\Ability_Druid_TreeofLife",
+-- 	hasNoColor             = true,
+-- 	defaultMinimapPosition = 60,
+-- 	cannotDetachTooltip	   = true,
+-- 	hideWithoutStandby     = true,
+-- 	blizzardTooltip        = true,
+-- 	hasNoText              = true,
+-- 	independentProfile	   = true,
+-- 	OnMenuRequest          = BunchOfBars.options
+-- })
 
 
 
